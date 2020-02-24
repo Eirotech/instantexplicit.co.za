@@ -1,0 +1,247 @@
+TABLE.FooterBand {
+   background-color : transparent;
+   width : 100%;
+   border-top-width : 1px;
+   border-right-width : 0px;
+   border-bottom-width : 0px;
+   border-left-width : 0px;
+   border-top-style : solid;
+   border-right-style : none;
+   border-bottom-style : none;
+   border-left-style : none;
+   border-top-color : #336699;
+   border-right-color : #336699;
+   border-bottom-color : #336699;
+   border-left-color : #336699;
+}
+TD.FooterBandLeft {
+   background-color : #DDDDDD;
+   width : Auto;
+}
+TD.FooterBandContent {
+   background-color : #DDDDDD;
+   width : 960px;
+}
+TD.FooterBandRight {
+   background-color : #DDDDDD;
+   width : Auto;
+}
+TABLE.FooterContent {
+   width : 100%;
+}
+TD.FooterPanel1 {
+   color : #666666;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   width : 220px;
+   padding-top : 20px;
+   padding-right : 10px;
+   padding-bottom : 20px;
+   padding-left : 10px;
+}
+TD.FooterPanel1 H6 {
+   font-family : Trebuchet MS, Arial, sans-serif;
+   color : #003399;
+   font-size : 19px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   padding-top : 0px;
+   padding-right : 0px;
+   padding-bottom : 0px;
+   padding-left : 0px;
+   margin-top : 0px;
+   margin-right : 0px;
+   margin-bottom : 10px;
+   margin-left : 0px;
+   border-top-width : 0px;
+   border-right-width : 0px;
+   border-bottom-width : 1px;
+   border-left-width : 0px;
+   border-top-style : none;
+   border-right-style : none;
+   border-bottom-style : dotted;
+   border-left-style : none;
+   border-top-color : #336699;
+   border-right-color : #336699;
+   border-bottom-color : #336699;
+   border-left-color : #336699;
+}
+TD.FooterPanel2 {
+   color : #666666;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   padding-top : 20px;
+   padding-right : 10px;
+   padding-bottom : 20px;
+   padding-left : 10px;
+}
+TD.FooterPanel2 H6 {
+   font-family : Trebuchet MS, Arial, sans-serif;
+   color : #003399;
+   font-size : 19px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   padding-top : 0px;
+   padding-right : 0px;
+   padding-bottom : 0px;
+   padding-left : 0px;
+   margin-top : 0px;
+   margin-right : 0px;
+   margin-bottom : 10px;
+   margin-left : 0px;
+   border-top-width : 0px;
+   border-right-width : 0px;
+   border-bottom-width : 1px;
+   border-left-width : 0px;
+   border-top-style : none;
+   border-right-style : none;
+   border-bottom-style : dotted;
+   border-left-style : none;
+   border-top-color : #336699;
+   border-right-color : #336699;
+   border-bottom-color : #336699;
+   border-left-color : #336699;
+}
+TD.FooterPanel2 UL {
+   font-family : Trebuchet MS, Arial, sans-serif;
+   color : #CCCCCC;
+   font-size : @GeneralFontSize;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   padding-top : 0px;
+   padding-right : 0px;
+   padding-bottom : 0px;
+   padding-left : 0px;
+   margin-top : 0px;
+   margin-right : 0px;
+   margin-bottom : 0px;
+   margin-left : 0px;
+   line-height : 1.5;
+   list-style-position : inside;
+   list-style-type : square;
+}
+TD.FooterPanel2 UL LI {
+   color : @GeneralFontColour;
+   font-size : @GeneralFontSize;
+   font-style : normal;
+   font-weight : normal;
+   list-style-position : inside;
+   list-style-type : square;
+}
+TD.FooterPanel2 UL LI A {
+   color : #336699;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   text-decoration : none;
+   text-transform : none;
+}
+TD.FooterPanel2 UL LI A:hover {
+   color : #9900CC;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   text-decoration : underline;
+   text-transform : none;
+}
+TD.FooterPanel3 {
+   color : #666666;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   width : 220px;
+   padding-top : 20px;
+   padding-right : 10px;
+   padding-bottom : 20px;
+   padding-left : 10px;
+}
+TD.FooterPanel3 H6 {
+   font-family : Trebuchet MS, Arial, sans-serif;
+   color : #003399;
+   font-size : 19px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   padding-top : 0px;
+   padding-right : 0px;
+   padding-bottom : 0px;
+   padding-left : 0px;
+   margin-top : 0px;
+   margin-right : 0px;
+   margin-bottom : 10px;
+   margin-left : 0px;
+   border-top-width : 0px;
+   border-right-width : 0px;
+   border-bottom-width : 1px;
+   border-left-width : 0px;
+   border-top-style : none;
+   border-right-style : none;
+   border-bottom-style : dotted;
+   border-left-style : none;
+   border-top-color : #336699;
+   border-right-color : #336699;
+   border-bottom-color : #336699;
+   border-left-color : #336699;
+}
+TD.FooterBottom {
+   color : #666666;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : center;
+   vertical-align : middle;
+   padding-top : 10px;
+   padding-right : 30px;
+   padding-bottom : 10px;
+   padding-left : 30px;
+   border-top-width : 1px;
+   border-right-width : 0px;
+   border-bottom-width : 0px;
+   border-left-width : 0px;
+   border-top-style : dotted;
+   border-right-style : none;
+   border-bottom-style : none;
+   border-left-style : none;
+   border-top-color : #336699;
+   border-right-color : #336699;
+   border-bottom-color : #336699;
+   border-left-color : #336699;
+}
+IMG.SocialIcon {
+   color : #666666;
+   font-size : 13px;
+   font-style : normal;
+   font-weight : normal;
+   margin-top : 0px;
+   margin-right : 5px;
+   margin-bottom : 5px;
+   margin-left : 0px;
+}
+P.QuickLinkHeading {
+   font-family : Trebuchet MS, Arial, sans-serif;
+   color : #666666;
+   font-size : 16px;
+   font-style : normal;
+   font-weight : normal;
+   text-align : left;
+   vertical-align : top;
+   padding-top : 0px;
+   padding-right : 0px;
+   padding-bottom : 5px;
+   padding-left : 0px;
+}
