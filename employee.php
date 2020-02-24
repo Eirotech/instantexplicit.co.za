@@ -42,6 +42,112 @@ if ($results) {
 }
 
 //end of update statement
+?>
+<?php
+$conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_instant'); 
+
+
+
+ // image1
+ if (isset($_POST['submit_image'])) {
+   $hidden =$_POST['hidden'];
+
+
+   
+ $target_dir = "img/";
+ $image1 = 'image1';
+ $target_file = $target_dir . basename($_FILES["image1"]["name"]);
+ $name = basename($_FILES["image1"]["name"]);
+
+
+   //query for updating the user table
+   $results = $conn->query ("UPDATE employee SET image =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
+
+   if (move_uploaded_file($_FILES['image1']['tmp_name'], $target_file)) {
+         echo "The file ". basename( $_FILES["image1"]["name"]). " has been uploaded.";
+         $_SESSION["image1"] = $name; 
+         header('Location: '.$_SERVER['REQUEST_URI']);
+     } else {
+         echo "Sorry, there was an error uploading your file.";
+     }
+
+ if ($results) {
+   print 'success! record updated';
+   //directing to user page
+
+   }
+   else {
+     print 'Error : ('. $conn->errno .') '. $conn->error;
+   }
+}
+
+// image2
+ if (isset($_POST['submit_image2'])) {
+   $hidden =$_POST['hidden'];
+
+
+   
+ $target_dir = "img/";
+ $image2 = 'image1';
+ $target_file = $target_dir . basename($_FILES["image2"]["name"]);
+ $name = basename($_FILES["image2"]["name"]);
+
+
+   //query for updating the user table
+   $results = $conn->query ("UPDATE employee SET image2 =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
+
+   if (move_uploaded_file($_FILES['image2']['tmp_name'], $target_file)) {
+         echo "The file ". basename( $_FILES["image2"]["name"]). " has been uploaded.";
+         $_SESSION["image2"] = $name; 
+         header('Location: '.$_SERVER['REQUEST_URI']);
+     } else {
+         echo "Sorry, there was an error uploading your file.";
+     }
+
+ if ($results) {
+   print 'success! record updated';
+   //directing to user page
+
+   }
+   else {
+     print 'Error : ('. $conn->errno .') '. $conn->error;
+   }
+}
+
+// image3
+ if (isset($_POST['submit_image3'])) {
+   $hidden =$_POST['hidden'];
+
+
+   
+ $target_dir = "img/";
+ $image3 = 'image3';
+ $target_file = $target_dir . basename($_FILES["image3"]["name"]);
+ $name = basename($_FILES["image3"]["name"]);
+
+
+   //query for updating the user table
+   $results = $conn->query ("UPDATE employee SET image3 =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
+
+   if (move_uploaded_file($_FILES['image3']['tmp_name'], $target_file)) {
+         echo "The file ". basename( $_FILES["image3"]["name"]). " has been uploaded.";
+         $_SESSION["image3"] = $name; 
+         header('Location: '.$_SERVER['REQUEST_URI']);
+     } else {
+         echo "Sorry, there was an error uploading your file.";
+     }
+
+ if ($results) {
+   print 'success! record updated';
+   //directing to user page
+
+   }
+   else {
+     print 'Error : ('. $conn->errno .') '. $conn->error;
+   }
+}
+
+
 
     ?>
 <!DOCTYPE html>
@@ -405,105 +511,7 @@ if ($results) {
 		      	</div>
 			</div>
 
-      <?php
-     $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_instant'); 
 
-
-
-      // image1
-      if (isset($_POST['submit_image'])) {
-        $hidden =$_POST['hidden'];
-
-
-        
-      $target_dir = "img/";
-      $image1 = 'image1';
-      $target_file = $target_dir . basename($_FILES["image1"]["name"]);
-      $name = basename($_FILES["image1"]["name"]);
-
-
-        //query for updating the user table
-        $results = $conn->query ("UPDATE employee SET image =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
-
-        if (move_uploaded_file($_FILES['image1']['tmp_name'], $target_file)) {
-              echo "The file ". basename( $_FILES["image1"]["name"]). " has been uploaded.";
-          } else {
-              echo "Sorry, there was an error uploading your file.";
-          }
-
-      if ($results) {
-        print 'success! record updated';
-        //directing to user page
-
-        }
-        else {
-          print 'Error : ('. $conn->errno .') '. $conn->error;
-        }
-    }
-
-     // image2
-      if (isset($_POST['submit_image2'])) {
-        $hidden =$_POST['hidden'];
-
-
-        
-      $target_dir = "img/";
-      $image2 = 'image1';
-      $target_file = $target_dir . basename($_FILES["image2"]["name"]);
-      $name = basename($_FILES["image2"]["name"]);
-
-
-        //query for updating the user table
-        $results = $conn->query ("UPDATE employee SET image2 =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
-
-        if (move_uploaded_file($_FILES['image2']['tmp_name'], $target_file)) {
-              echo "The file ". basename( $_FILES["image2"]["name"]). " has been uploaded.";
-          } else {
-              echo "Sorry, there was an error uploading your file.";
-          }
-
-      if ($results) {
-        print 'success! record updated';
-        //directing to user page
-
-        }
-        else {
-          print 'Error : ('. $conn->errno .') '. $conn->error;
-        }
-    }
-
-     // image3
-      if (isset($_POST['submit_image3'])) {
-        $hidden =$_POST['hidden'];
-
-
-        
-      $target_dir = "img/";
-      $image3 = 'image3';
-      $target_file = $target_dir . basename($_FILES["image3"]["name"]);
-      $name = basename($_FILES["image3"]["name"]);
-
-
-        //query for updating the user table
-        $results = $conn->query ("UPDATE employee SET image3 =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
-
-        if (move_uploaded_file($_FILES['image3']['tmp_name'], $target_file)) {
-              echo "The file ". basename( $_FILES["image3"]["name"]). " has been uploaded.";
-          } else {
-              echo "Sorry, there was an error uploading your file.";
-          }
-
-      if ($results) {
-        print 'success! record updated';
-        //directing to user page
-
-        }
-        else {
-          print 'Error : ('. $conn->errno .') '. $conn->error;
-        }
-    }
-
-?>
 		</section>
 </section>
 <?php
