@@ -211,24 +211,25 @@ function showUser(str) {
         <div class="row" style="background-color: #343a40; color: #f90d3d; padding: 15px 0px;">
           <h1 style="text-align: center; margin: 15px 0px;">Profile Edit</h1>
         </div>          
-        <form style="margin: 15px 0px;">
+        <form style="margin: 15px 0px;" method="post" >
           <select class="form-control" name="users" style="background-color: #666767; max-width: 400px; color: #fff;" onchange="showUser(this.value)">
             <option value="">Select a person:</option>
               <?php
                 $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_instant');
-                if (!$con) {
-                    die('Could not connect: ' . mysqli_error($con));
+                if (!$conn) {
+                    die('Could not connect: ' . mysqli_error($conn));
                 } 
                 $query = "SELECT * FROM employee";
-                $result = mysqli_query($con, $query);
+                $result = mysqli_query($conn, $query);
                   if(mysqli_num_rows($result) > 0) {
                       while($row = mysqli_fetch_array($result)) {                          
-                        ?><option value="<?php echo $row['Id']; ?>" style="background-color: #f90d3d;"><?php echo $row['username']; ?></option><?php
+                        ?><option value="<?php echo $row['Id']; ?>" style="background-color: #f90d3d;"><?php echo $row['name']; ?></option><?php
                           }
                         }
                       }
                     ?>
           </select>
+          <input type="submit" name="submit_user" value="Load User" />
         </form>                                 
           <div id="txtHint"><b>Person info will be listed here...</b></div>
       </div>
@@ -238,20 +239,20 @@ function showUser(str) {
       <div class="container">
         <?php
 
-$conn = mysqli_connect('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_instant');
+/*$conn = mysqli_connect('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_instant');
 $q = "";
 $q = intval($_GET['q']);// this q get from the value of the options then combines with whats in the base
 
 if (!$conn) {
     die('Could not connect: ' . mysqli_error($conn));
-}
+}*/
 
 
 //update statement
 if (isset($_POST['update'])) {
 
   //query for updating the user table
-  $results = $conn->query ("UPDATE `employee` SET `name`= '".$_POST['name']."',`nationality`='".$_POST['nationality']."',`body_type`='".$_POST['body_type']."',`cell_number`='".$_POST['cell_number']."',`email`= '".$_POST['email']."',`time_service`='".$_POST['time_service']."',`gender`='".$_POST['gender']."',`city`='".$_POST['city']."',`suburb`='".$_POST['suburb']."',`about`='".$_POST['about']."' WHERE Id = '".$_POST['hidden']."' ");
+  $results = $conn->query ("UPDATE `employee` SET `name`= '".$_POST['name']."',`nationality`='".$_POST['nationality']."',`body_type`='".$_POST['body_type']."',`cell_number`='".$_POST['cell_number']."',`email`= '".$_POST['email']."',`experience`='".$_POST['experience']."',`gender`='".$_POST['gender']."',`city`='".$_POST['city']."',`suburb`='".$_POST['suburb']."',`bio`='".$_POST['bio']."' WHERE Id = '".$_POST['hidden']."' ");
 
 
 
@@ -277,10 +278,14 @@ if (isset($_POST['delete'])) {
   }
 }
 
- 
+$selected_val= "";
+if(isset($_POST['submit_user'])){
+  $selected_val = $_POST['users'];  // Storing Selected Value In Variable
+  echo "You have selected :" .$selected_val;  // Displaying Selected Value
+  }
 
 mysqli_select_db($conn,"instant");// lols they told me to use this function its same as used in ur code but this function feels wrong
-$sql="SELECT * FROM `employee` WHERE Id = '".$q."'";
+$sql="SELECT * FROM `employee` WHERE Id = '".$selected_val."'";
 $result = mysqli_query($conn,$sql);
 
 
@@ -547,7 +552,7 @@ while($row = mysqli_fetch_array($result)) {
 
                   <div class="form-group">
                     <label>Experience</label>
-                    <input class="form-control " type="date" name="time_service" value="<?php echo $row['time_service'] ?>" placeholder="time_service" required>
+                    <input class="form-control " type="date" name="experience" value="<?php echo $row['experience'] ?>" placeholder="experience" required>
                   </div>
 
 
@@ -602,7 +607,7 @@ while($row = mysqli_fetch_array($result)) {
                   </div>
 
                   <div class="form-group">
-                    <textarea class="form-control" name ="about" value ="<?php echo $row['about']; ?>" placeholder="BIO"><?php echo $row['about']; ?></textarea>
+                    <textarea class="form-control" name ="bio" value ="<?php echo $row['bio']; ?>" placeholder="BIO"><?php echo $row['bio']; ?></textarea>
                   </div>
                  
 
