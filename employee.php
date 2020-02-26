@@ -244,8 +244,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
 				<div class="row" style="background-color: #666767; padding: 15px 15px;">
 					<div class="col-xs-6">
             <div class="card-footer" style="margin-top:0px;">
-            <img src="img/avatar.png" width="100%" style="width: 150px; position: absolute;">
-						<img src="img/<?php echo $_SESSION['profile_pic']; ?>" class="avatar" style="width: 150px; border-radius: 75px; border: solid 4px #f90d3d; position: relative;">
+            <img src="img/<?php 
+            if(isset($_SESSION['profile_pic']) && $_SESSION['profile_pic'] != ""){
+              echo $_SESSION['profile_pic'];
+            }else{
+              echo 'avatar.png';} ?>" class="avatar" style="width: 150px; border-radius: 75px; border: solid 4px #f90d3d; position: relative;">
 						<br>
 						
              
