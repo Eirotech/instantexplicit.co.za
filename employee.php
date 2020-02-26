@@ -117,8 +117,6 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
 // image3
  if (isset($_POST['submit_image3'])) {
    $hidden =$_POST['hidden'];
-
-
    
  $target_dir = "img/";
  $image3 = 'image3';
@@ -147,9 +145,39 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
    }
 }
 
+// profile_pic
+if (isset($_POST['submit_profile'])) {
+  $hidden =$_POST['hidden'];
+  
+$target_dir = "img/";
+$profile_pic = 'profile_pic';
+$target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
+$name = basename($_FILES["profile_pic"]["name"]);
 
 
-    ?>
+  //query for updating the user table
+  $results = $conn->query ("UPDATE employee SET profile_pic =  '$name' WHERE Id = " .$_SESSION["Id"] . " ");
+
+  if (move_uploaded_file($_FILES['profile_pic']['tmp_name'], $target_file)) {
+        echo "The file ". basename( $_FILES["profile_pic"]["name"]). " has been uploaded.";
+        $_SESSION["profile_pic"] = $name; 
+        header('Location: '.$_SERVER['REQUEST_URI']);
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+if ($results) {
+  print 'success! record updated';
+  //directing to user page
+
+  }
+  else {
+    print 'Error : ('. $conn->errno .') '. $conn->error;
+  }
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -252,7 +280,7 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
 						<br>
 						
              
-                <button class="btn" href="" style="margin-top: 10px;">Change Picture</button>
+                <button class="btn" href="" style="margin-top: 10px;"><a class="nav-link" onclick="openmove('profile_pic')" >Change Picture</a></button>
               </div>
 					</div>
 
@@ -321,8 +349,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
                                         <div class="media">
                                           <div class="media-body" style="height: 310px;">
                                             <div class="text-muted">
-                                                <img src="img/avatar.png" width="100%" style="position: absolute;">
-                                                <img src="img/<?php echo $_SESSION["image1"]; ?>" width="100%" style="position: relative;">
+                                                
+                                                <img src="img/<?php  if(isset($_SESSION['image1']) && $_SESSION['image1'] != ""){
+                                                  echo $_SESSION['image1'];
+                                                }else{
+                                                  echo 'avatar.png';} ?>" width="100%" style="position: relative;">
                                                 <?php    echo ""."<input type ='hidden' name ='hidden' value = " .$_SESSION["Id"] . "></input>";?>
                                         </div>
                                         
@@ -345,8 +376,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
                                         <div class="media">
                                           <div class="media-body" style="height: 310px;">
                                             <div class="text-muted">
-                                                <img src="img/avatar.png" width="100%" style="position: absolute;">
-                                                <img src="img/<?php echo $_SESSION["image2"]; ?>" width="100%" style="position: relative;">
+                                                
+                                                <img src="img/<?php  if(isset($_SESSION['image2']) && $_SESSION['image2'] != ""){
+                                                    echo $_SESSION['image2'];
+                                                  }else{
+                                                    echo 'avatar.png';} ?>" width="100%" style="position: relative;">
                                         </div>
                                         
                                           </div>
@@ -368,8 +402,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
                                         <div class="media">
                                           <div class="media-body" style="height: 310px;">
                                             <div class="text-muted">
-                                                <img src="img/avatar.png" width="100%" style="position: absolute;">
-                                                <img src="img/<?php echo $_SESSION["image3"]; ?>" width="100%" style="position: relative;">
+                                               
+                                                <img src="img/<?php  if(isset($_SESSION['image3']) && $_SESSION['image3'] != ""){
+                                                  echo $_SESSION['image3'];
+                                                }else{
+                                                  echo 'avatar.png';} ?>" width="100%" style="position: relative;">
                                         </div>
                                         
                                           </div>
@@ -448,8 +485,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
                                         <div class="media">
                                           <div class="media-body" style="height: 310px;">
                                             <div class="text-muted">
-                                              	<img src="img/avatar.png" width="100%" style="position: absolute;">
-                                              	<img src="img/<?php echo $_SESSION["image1"]; ?>" width="100%" style="position: relative;">
+                                              	
+                                              	<img src="img/<?php  if(isset($_SESSION['image1']) && $_SESSION['image1'] != ""){
+                                                    echo $_SESSION['image1'];
+                                                  }else{
+                                                    echo 'avatar.png';} ?>" width="100%" style="position: relative;">
                                   			</div>
                                   			
                                           </div>
@@ -472,8 +512,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
                                         <div class="media">
                                           <div class="media-body" style="height: 310px;">
                                             <div class="text-muted">
-                                              	<img src="img/avatar.png" width="100%" style="position: absolute;">
-                                              	<img src="img/<?php echo $_SESSION["image2"]; ?>" width="100%" style="position: relative;">
+                                              
+                                              	<img src="img/<?php  if(isset($_SESSION['image2']) && $_SESSION['image2'] != ""){
+                                                      echo $_SESSION['image2'];
+                                                    }else{
+                                                      echo 'avatar.png';} ?>" width="100%" style="position: relative;">
                                   			</div>
                                   			
                                           </div>
@@ -495,8 +538,11 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
                                         <div class="media">
                                           <div class="media-body" style="height: 310px;">
                                             <div class="text-muted">
-                                              	<img src="img/avatar.png" width="100%" style="position: absolute;">
-                                              	<img src="img/<?php echo $_SESSION["image3"]; ?>" width="100%" style="position: relative;">
+                                              	
+                                              	<img src="img/<?php  if(isset($_SESSION['image3']) && $_SESSION['image3'] != ""){
+                                                    echo $_SESSION['image3'];
+                                                  }else{
+                                                    echo 'avatar.png';} ?>" width="100%" style="position: relative;">
                                   			</div>
                                   			
                                           </div>
@@ -512,6 +558,40 @@ $conn = new mysqli('stone.aserv.co.za','instaapn','n5eahq]glm4t', 'instaapn_inst
 							</div>
 			        	</div>
 		      	</div>
+			</div>
+
+
+		</section>
+</section>
+<!-- Change Profile Picture -->
+<section id="profile_pic" class="w3-container move" style="display:none;" >
+	<section class="content-wrapper" style="padding: 98px 0px;">
+			<div class="container">
+				<div class="row" style="background-color: #343a40; color: #f90d3d; padding: 15px 0px;">
+					<h1 style="text-align: center; margin: 15px 0px;">Change Profile Picture</h1>
+				</div>
+
+				<div class="row">
+		        		<div class="col-lg-4" style="padding-left: 0px; background-color: #666767;">
+		        			<div class="card">                           
+                             
+                                            <div class="text-muted">
+                                              	
+                                              	<img src="img/<?php  if(isset($_SESSION['profile_pic']) && $_SESSION['profile_pic'] != ""){
+                                                    echo $_SESSION['profile_pic'];
+                                                  }else{
+                                                    echo 'avatar.png';} ?>" width="100%" style="position: relative;">
+                                  			</div>
+    
+                            </div>
+                            <div class="card-footer small text-muted" style="padding-top: 10px;">
+                            	<form action="employee.php" method="post" enctype="multipart/form-data">
+								    <input class="btn" type="file" name="profile_pic" id="fileToUpload">
+								    <input class="btn" type="submit" value="Upload Image" name="submit_profile">
+                      <?php    echo ""."<input type ='text' name ='hidden' value = " .$_SESSION["profile_pic"] . "></input>";?>
+								</form>
+							</div>
+			        	</div>
 			</div>
 
 
